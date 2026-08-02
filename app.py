@@ -6,6 +6,9 @@ from sample import build_chain
 import uuid
 import os
 
+
+GROQ_API_KEY = os.getenv("GROQ_API_KEY") or st.secrets["GROQ_API_KEY"]
+TAVILY_API_KEY = os.getenv("TAVILY_API_KEY") or st.secrets["TAVILY_API_KEY"]
 # -------------------------
 # Setup
 # -------------------------
