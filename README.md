@@ -1,102 +1,211 @@
-TutorAI 📚🤖
+# 🎓 TutorAI
 
-TutorAI is an AI-powered study assistant that allows you to chat with your PDFs while optionally enhancing answers with real-time web search. It builds a searchable knowledge base from your uploaded documents and provides context-aware, conversational responses using modern LLMs.
+> **An AI-powered study assistant that lets you chat with your PDFs and enrich responses with real-time web search.**
 
-✨ Features
-📄 Upload one or more PDF documents
-💬 Chat naturally with your notes
-🌐 Optional web search using Tavily for additional context
-🧠 Prioritizes information from your uploaded notes over web sources
-🔍 Semantic search with ChromaDB + FAISS
-📝 Conversation memory for follow-up questions
-⚡ Powered by Groq's Llama 3.3 70B model
-🎨 Clean and interactive Streamlit interface
-🛠️ Tech Stack
-Category	Technologies
-Frontend	Streamlit
-LLM	Groq (Llama 3.3 70B)
-Framework	LangChain
-Embeddings	HuggingFace (all-MiniLM-L6-v2)
-Vector Database	ChromaDB
-Retrieval	FAISS
-Web Search	Tavily Search API
-PDF Processing	PyPDF, PyPDFLoader
-📂 Project Structure
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.11+-blue?style=for-the-badge&logo=python" />
+  <img src="https://img.shields.io/badge/Streamlit-Deployed-red?style=for-the-badge&logo=streamlit" />
+  <img src="https://img.shields.io/badge/LangChain-RAG-green?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Groq-Llama--3.3--70B-orange?style=for-the-badge" />
+</p>
+
+---
+
+## 📖 Overview
+
+TutorAI is a Retrieval-Augmented Generation (RAG) application that enables users to upload PDFs, build a semantic knowledge base, and interact with their documents through natural conversation.
+
+It also supports **optional web search**, allowing answers to be enhanced with recent information while always prioritizing the user's uploaded notes.
+
+---
+
+## ✨ Features
+
+- 📄 Upload multiple PDF documents
+- 💬 Chat naturally with your notes
+- 🌐 Optional web search using Tavily
+- 🧠 RAG-powered semantic retrieval
+- 📚 ChromaDB vector database
+- 🔍 FAISS similarity search
+- 📝 Conversation memory for follow-up questions
+- 🤖 Powered by Groq's Llama 3.3 70B
+- 🎨 Modern Streamlit interface
+
+---
+
+## 🏗️ Architecture
+
+```
+                  ┌──────────────┐
+                  │ Upload PDFs  │
+                  └──────┬───────┘
+                         │
+                  PDF Processing
+                         │
+                Text Chunking
+                         │
+                 HuggingFace Embeddings
+                         │
+                    ChromaDB
+                         │
+                  Similarity Search
+                         │
+         Optional Tavily Web Search
+                         │
+                 Context Retrieval
+                         │
+             Groq Llama 3.3 70B
+                         │
+                  Final Response
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| Frontend | Streamlit |
+| LLM | Groq (Llama 3.3 70B) |
+| Framework | LangChain |
+| Embeddings | HuggingFace (`all-MiniLM-L6-v2`) |
+| Vector Store | ChromaDB |
+| Retrieval | FAISS |
+| Web Search | Tavily API |
+| PDF Loader | PyPDF |
+| Language | Python |
+
+---
+
+## 📂 Project Structure
+
+```text
 TutorAI/
 │
-├── Data/                  # Uploaded PDFs
-├── db/                    # Vector database
-├── app.py                 # Streamlit UI
-├── sample.py              # RAG pipeline
+├── Data/                 # Uploaded PDFs
+├── db/                   # Vector Database
+├── app.py                # Streamlit UI
+├── sample.py             # RAG Pipeline
 ├── requirements.txt
 ├── .gitignore
 └── README.md
-⚙️ Installation
+```
 
-Clone the repository:
+---
 
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
 git clone https://github.com/snehit20/TutorAI.git
 cd TutorAI
+```
 
-Create a virtual environment:
+### 2. Create a virtual environment
 
+```bash
 python -m venv venv
+```
 
-Activate it:
+### Windows
 
-Windows
-
+```bash
 venv\Scripts\activate
+```
 
-Linux/macOS
+### Linux / macOS
 
+```bash
 source venv/bin/activate
+```
 
-Install dependencies:
+### 3. Install dependencies
 
+```bash
 pip install -r requirements.txt
-🔑 Environment Variables
+```
 
-Create a .env file in the project root.
+---
 
+## 🔑 Environment Variables
+
+Create a `.env` file in the root directory.
+
+```env
 GROQ_API_KEY=your_groq_api_key
 TAVILY_API_KEY=your_tavily_api_key
+```
 
-If you're deploying on Streamlit Community Cloud, add these keys under App Settings → Secrets instead.
+If deploying on **Streamlit Community Cloud**, add these variables under **App Settings → Secrets**.
 
-▶️ Running the Application
+---
+
+## ▶️ Run the application
+
+```bash
 streamlit run app.py
-🚀 How It Works
-Upload one or more PDF files.
-(Optional) Enter a topic to retrieve supporting web information.
-Build the knowledge base.
-Ask questions in natural language.
-TutorAI retrieves the most relevant context and generates answers while prioritizing your uploaded notes.
-📸 Demo
+```
 
-Live Demo: https://YOUR-STREAMLIT-APP.streamlit.app
+---
 
-(Replace with your deployed Streamlit link.)
+## 📸 Demo
 
-🔮 Future Improvements
-Support for DOCX, PPTX, and TXT files
-Source citations in responses
-Multi-user authentication
-Persistent chat history
-Export conversations
-Image and table understanding
-Streaming citations with answers
-🤝 Contributing
+### Live Demo
 
-Contributions, ideas, and suggestions are always welcome.
+🔗 **https://YOUR-STREAMLIT-LINK.streamlit.app**
 
-If you find a bug or have a feature request, feel free to open an issue or submit a pull request.
+*(Replace this with your deployed URL.)*
 
-📬 Contact
+---
 
-Snehit Singh
+## 💡 How It Works
 
-LinkedIn: (Add your LinkedIn profile)
-GitHub: https://github.com/snehit20
+1. Upload one or more PDFs.
+2. (Optional) Enter a topic for web search.
+3. Build the knowledge base.
+4. Ask questions naturally.
+5. TutorAI retrieves relevant information from your PDFs (and optionally the web) to generate accurate responses.
 
-⭐ If you found this project interesting, consider giving it a star on GitHub!
+---
+
+## 🔮 Future Improvements
+
+- 📑 DOCX & PPT support
+- 🖼️ Image understanding
+- 📖 Source citations
+- 💾 Persistent conversations
+- 👤 User authentication
+- 📤 Chat export
+- 🌍 Multi-language support
+
+---
+
+## 🤝 Contributing
+
+Contributions, ideas, and feature requests are always welcome.
+
+If you'd like to improve TutorAI, feel free to fork the repository and submit a pull request.
+
+---
+
+## 👨‍💻 Author
+
+**Snehit Singh**
+
+- GitHub: https://github.com/snehit20
+- LinkedIn: *(Add your LinkedIn profile)*
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a **⭐ Star**.
+
+It helps others discover the project and motivates future development.
+
+---
+
+<p align="center">
+Made with ❤️ using Streamlit, LangChain, ChromaDB, and Groq.
+</p>
