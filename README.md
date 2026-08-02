@@ -194,7 +194,8 @@ If you'd like to improve TutorAI, feel free to fork the repository and submit a 
 **Snehit Singh**
 
 - GitHub: https://github.com/snehit20
-- LinkedIn: *(Add your LinkedIn profile)*
+- LinkedIn: www.linkedin.com/in/snehit-singh-b5b707335
+
 
 ---
 
