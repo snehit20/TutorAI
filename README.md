@@ -155,7 +155,6 @@ streamlit run app.py
 
 🔗 **https://YOUR-STREAMLIT-LINK.streamlit.app**
 
-*(Replace this with your deployed URL.)*
 
 ---
 
